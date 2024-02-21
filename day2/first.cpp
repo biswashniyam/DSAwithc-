@@ -4,7 +4,8 @@ using namespace std;
 int main()
 {
     //conditional statements
-    /*int n;
+    /*
+    int n;
     cout<<"enter the value of n:"<<endl;
     cin>>n;
     if(n>0)
@@ -26,16 +27,31 @@ int main()
     //cin donot reads (space),(tab),(enter\n)
     //for this we use cin.get();
 
-    int a,b;
+    /*int a,b;
     cout<<"Enter the value of a is :"<<endl;
     a=cin.get();//it picks up character if 1 is input it picks ASCII value of 1
-    cout<<"Value of a is :"<<a<<endl;//(2  2)=50
+    cout<<"Value of a is :"<<a<<endl;//(2  2)=50*/
     /*
 Enter the value of a is :
 1
 Value of a is :49*/
 //we can take input as space ,tab,enter by using a cin.get();
-
+int a;
+cout<<"Enter the value of a :"<<endl;
+cin>>a;
+if(a>0)
+{
+    cout<<"value is positive"<<endl;
+}
+else{
+    if(a<0)
+    {
+        cout<<"A is less than zero"<<endl;
+    }
+    else{
+        cout<<"isEqqual to zero"<<endl;
+    }
+}
 
 
 }
