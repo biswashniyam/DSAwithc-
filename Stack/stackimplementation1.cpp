@@ -56,7 +56,34 @@ char pop()
     }
 
 }
-void readstack()
+char peek() {
+        if (isEmpty()) {
+            cout << "stack is empty" << endl;
+            return '\0'; // Return a default value indicating an empty stack
+        }
+        else {
+            cout<<"Top element:"<<arri[TOP]<<endl;
+        }
+    }
+
+    int getSize() //retrives size of the stack/total size print garcha yesley
+    {
+       cout<<"get size is :"<< TOP + 1<<endl;
+    }
+
+    int search(char element) 
+    {
+        for (int i = TOP; i >= 0; i--) {
+            if (arri[i] == element) {
+                cout << "Found element '" << element << "' at position " << TOP - i + 1 << " from the top." << endl;
+                return TOP - i + 1;
+            }
+        }
+        cout << "Element '" << element << "' not found in the stack." << endl;
+        return -1; // Element not found
+    }
+
+void readstack()//prints stack
 {
     if(isEmpty())
     {
@@ -81,14 +108,18 @@ int main()
     obj1.pushing('a');
     obj1.pushing('s');
     obj1.pushing('h');
-    //obj1.readstack();//prints all the items stored in a stack
+    obj1.readstack();//prints all the items stored in a stack
+    /*obj1.pop();
     obj1.pop();
     obj1.pop();
     obj1.pop();
     obj1.pop();
     obj1.pop();
-    obj1.pop();
-    obj1.pop();
+    obj1.pop();*/
+    obj1.peek();
+    obj1.getSize();
+    obj1.search('w');
+
 
     return 0;
 }
