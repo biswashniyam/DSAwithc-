@@ -11,7 +11,7 @@ void heramnata(int n,int source,int auxillary,int destination)
         return;
     }
     //statement 2
-heramnata(n-1,source,destination,auxillary);
+heramnata(n-1,source,destination,auxillary);  
 //cout<<" second statement"<<endl;
 cout<<"Move disk "<<n<<" From "<<source<<" to "<<destination<<endl;
 //cout<<"third statement"<<endl;
