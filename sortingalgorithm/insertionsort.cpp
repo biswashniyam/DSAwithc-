@@ -26,7 +26,7 @@ void printarray(int n,int arra[])
 }
 int main()
 {
-  int arra[]={6,5,3,1,8,7,2,4};
+  int arra[]={31, 41, 59, 26, 41, 58};//6,5,3,1,8,7,2,4//
   int n=sizeof(arra)/sizeof(arra[0]);
   cout<<"unsorted array : "<<endl;
   printarray(n,arra);
