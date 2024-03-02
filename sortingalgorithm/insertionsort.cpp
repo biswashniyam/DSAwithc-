@@ -1,42 +1,72 @@
 #include<iostream>
 using namespace std;
-
-void insertionsort(int arr[],int n)
+void insertionsort(int arra[], int n) 
 {
-    for(int i=1; i< n; i++)
-    {
-        int key=arr[i];
-        int j=i-1;
-     // Move elements of arr[0..i-1] that are greater than key to one position ahead of their current position
-        while(j>=0 && arr[j] > key)
-        {
-            //shift
-            arr[j+1]=arr[j];
-            --j;
+    for (int i = 1; i < n; i++) 
+    {//arra[]={6,5,3,1,8,7,2,4};
+        int key = arra[i];
+        int j = i - 1;
+        while (j >= 0 && arra[j] > key) {
+            arra[j + 1] = arra[j];
+            j = j - 1;
         }
-        arr[j +1]=key;
+
+        // Insert key at the correct position
+        arra[j + 1] = key;
     }
 }
-//function to print an array
-void printarray(int arr[],int size)
+void printarray(int n,int arra[])
 {
-    for (int i = 0; i < size; i++)
-    {
-        cout << arr[i] << " "<<endl;
-        if (i < size - 1) {
-            cout << " ";}
-    
-    }
+  //cout<<"unsorted array:"<<endl;
+  for(int i=0;i<n;i++)
+  {
+    cout<<arra[i]<<" ";
+  }
+  cout<<endl;
 }
 int main()
 {
-    int arr[]={12,11,13,5,1,15,6,9,2};
-    int n=sizeof(arr)/sizeof(arr[0]);
-
-    cout<<"unsorted array: "<<endl;;
-    printarray(arr,n);
-    insertionsort(arr,n);
-    cout<<"sorted array :"<<endl;
-    printarray(arr,n);
+  int arra[]={6,5,3,1,8,7,2,4};
+  int n=sizeof(arra)/sizeof(arra[0]);
+  cout<<"unsorted array : "<<endl;
+  printarray(n,arra);
+  cout<<"sorted array"<<endl;
+  //printarray(n,arra);
+  insertionsort( arra, n);
+printarray(n,arra);
 
 }
+//process
+/*
+Initial Array: {6, 5, 3, 1, 8, 7, 2, 4}
+
+First Iteration (i = 1):
+Key: key = 5
+j = 0: Since 6 > 5, move 6 to the right.
+Array becomes {6, 6, 3, 1, 8, 7, 2, 4}
+j = -1: Now j becomes -1.
+Insert Key: arra[j + 1] = key => arra[0] = 5
+Array becomes {5, 6, 3, 1, 8, 7, 2, 4}
+
+Second Iteration (i = 2):
+Key: key = 3
+j = 1: Since 6 > 3, move 6 to the right.
+Array becomes {5, 6, 6, 1, 8, 7, 2, 4}
+j = 0: Since 5 > 3, move 5 to the right.
+Array becomes {5, 5, 6, 1, 8, 7, 2, 4}
+j = -1: Now j becomes -1.
+Insert Key: arra[j + 1] = key => arra[0] = 3
+Array becomes {3, 5, 6, 1, 8, 7, 2, 4}
+
+Third Iteration (i = 3):
+Key: key = 1
+j = 2: Since 6 > 1, move 6 to the right.
+Array becomes {3, 5, 6, 6, 8, 7, 2, 4}
+j = 1: Since 5 > 1, move 5 to the right.
+Array becomes {3, 5, 5, 6, 8, 7, 2, 4}
+j = 0: Since 3 > 1, move 3 to the right.
+Array becomes {3, 3, 5, 6, 8, 7, 2, 4}
+j = -1: Now j becomes -1.
+Insert Key: arra[j + 1] = key => arra[0] = 1
+Array becomes {1, 3, 5, 6, 8, 7, 2, 4}
+*/
