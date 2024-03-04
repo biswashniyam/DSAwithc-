@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-#define SIZE 10
+#define SIZE 5
 
 class queue {
     int arra[SIZE];
@@ -12,76 +12,106 @@ public:
         FRONT = -1;
         REAR = -1;
     }
-
-    bool isEmpty() {
-        return (FRONT == -1 && REAR == -1);
-    }
-
-    bool isFull() {
-        return (REAR == SIZE - 1);
-    }
-
-    void enQueue(int item) {
-        if (isFull()) {
-            cout << "Queue overflow" << endl;
+     bool isEmpty()
+    {
+        if(FRONT==-1 && REAR==-1)
+        {
+            return true;
         }
-        else {
-            if (isEmpty()) {
-                FRONT = 0;
-            }
+        else
+        {
+            return false;
+        }
+    }
+    bool isFull()
+    {
+        if(FRONT==0 && REAR==SIZE-1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    void enqueue(int item)
+    {
+        if(isFull())
+        {
+            cout<<"queue is full"<<endl;
+        }
+        else{
+            if(FRONT==-1)
+            FRONT=0;
             REAR++;
-            arra[REAR] = item;
-            cout << endl << "Inserted " << item << endl;
+            arra[REAR]=item;
         }
     }
-
-    void Dequeue() {
-        if (isEmpty()) {
-            cout << "Queue is already empty" << endl;
+    void dequeue()
+    {
+        int deletedata;
+        if(isEmpty())
+        {
+            cout<<"Queue is empty"<<endl;
         }
-        else {
-            int itemToDelete = arra[FRONT];
-            if (FRONT == REAR) {
-                FRONT = -1;
-                REAR = -1;
+        else
+        {
+            deletedata=arra[FRONT];
+            if(FRONT>=REAR)
+            {
+                FRONT=-1;
+                REAR=-1;
             }
-            else {
+            else{
                 FRONT++;
             }
-            cout << endl << "Deleted " << itemToDelete << endl;
+
         }
     }
 
-    void display() {
-        if (isEmpty()) {
-            cout << endl << "Empty queue" << endl;
+    void display()
+    {
+        if(isEmpty())
+        {
+            cout<<"Stack is empty to display"<<endl;
+
         }
-        else {
-            cout << endl << "Front index-> " << FRONT;
-            cout << endl << "Items-> " << endl;
-            for (int i = FRONT; i <= REAR; i++) {
-                cout << arra[i] << " ";
+        else{
+            cout<<"Items in a queue: "<<endl;
+            for(int i=FRONT;i<=REAR;i++)
+            {
+                
+                cout<<arra[i]<<" ";
             }
-            cout << endl << "Rear index-> " << REAR << endl;
+            cout<<endl;
+        }
+    }
+    void peek()
+    {
+        if(isEmpty())
+        {
+            cout<<"Stack is empty"<<endl;
+        }
+        else{
+            cout<<"Wanted value is : ";
+            cout<<arra[FRONT]<<endl;
         }
     }
 };
 
-int main() {
-    queue qu;
-    qu.enQueue(1);
-    qu.enQueue(2);
-    qu.enQueue(3);
-    qu.enQueue(4);
-    qu.enQueue(5);
-    qu.enQueue(6);
-    qu.enQueue(7);
-    qu.enQueue(8);
-    qu.enQueue(9);
-    qu.enQueue(10);
-    qu.enQueue(11); // This will show overflow message in the corrected code
-    // Display queue items 
-    qu.display();
+int main()
+{
+    queue hal;
+    hal.enqueue(1);
+    hal.enqueue(2);
+    hal.enqueue(3);
+    hal.enqueue(4);
+    hal.enqueue(5);
+    //hal.enqueue(6);//shows queue is full as it goes out of bound./stack overflow
+    hal.display();//display item from a queue.(1 2 3 4 5)
+    hal.dequeue();//it removes the first element from the queue (//removes 1)
+    hal.display();
+    hal.peek();//displays top FRONT positioned value without removing it
+    
 
-    return 0;
 }
