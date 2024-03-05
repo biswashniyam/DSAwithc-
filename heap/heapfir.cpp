@@ -66,19 +66,16 @@ class heap
                 return;
             }
         }
-
     }
     void print()
     {cout<<"Elements in an array are:"<<endl;
         for(int i=1;i<=size;i++)
         {
-            
-            cout<<arr[i]<<" ";
+        cout<<arr[i]<<" ";
         }
         cout<<endl;
     }
 };
-
 int main()
 {
     heap he;
