@@ -42,7 +42,8 @@ class CircularQueue{
     }
 
     // Dequeues top element from queue. Returns -1 if the stack is empty, otherwise returns the popped element.
-    int dequeue(){
+    int dequeue()
+    {cout<<"Elements after deque are:"<<endl;
         if(front == -1){//to check queue is empty
             //cout << "Queue is Empty " << endl;
             return -1;
@@ -88,8 +89,8 @@ int main()
     cq.display();
     cq.dequeue();
     cq.display();
-    cq.enqueue(6);
-    cq.display();
-    cq.enqueue(7);
-    cq.display();
+    //cq.enqueue(6);
+    //cq.display();
+    //cq.enqueue(7);
+    //cq.display();
 }
