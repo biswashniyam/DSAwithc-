@@ -43,13 +43,12 @@ void inordertraversal(node* root){
     cout << root -> data << " ";
     inordertraversal(root -> right);
 }
-void preordertraversal(node* root){
-
+void preordertraversal(node* root)
+{
     //base case
     if(root == NULL){
         return;
     }
-
     //NLR or PLR
     cout << root->data << " ";
     preordertraversal(root -> left);
@@ -60,7 +59,6 @@ void postordertraversal(node* root){
     if(root == NULL){
         return ;
     }
-
     //LRN or LRP
     postordertraversal(root -> left);
     postordertraversal(root -> right);
@@ -75,11 +73,11 @@ int main()
     
     cout<<"In order traversal is : "<<endl;
     inordertraversal(root);
-cout<<endl;
+    cout<<endl;
+    
     cout<<"Pre order traversal is :"<<endl;
     preordertraversal(root);
     cout<<endl;
-
 
     cout<<"post order traversal is :"<<endl;
     postordertraversal(root);
